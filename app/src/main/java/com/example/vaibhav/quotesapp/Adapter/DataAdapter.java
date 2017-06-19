@@ -1,8 +1,10 @@
 package com.example.vaibhav.quotesapp.Adapter;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -49,6 +51,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                 Intent i = new Intent(holder.cardView.getContext(), SingleViewActivity.class);
                 i.putExtra("text", quote.get(position).getText());
                 i.putExtra("img", quote.get(position).getImage());
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    Bundle bundle = ActivityOptions.makeCustomAnimation(holder.cardView.getContext(), R.anim.slide_in_up, R.anim.slide_out_up).toBundle();
+                    holder.cardView.getContext().startActivity(i, bundle);
+                    return;
+                }
                 holder.cardView.getContext().startActivity(i);
             }
         });
@@ -69,12 +76,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             quoteText = (TextView) itemView.findViewById(R.id.quote_text);
             quoteImage = (ImageView) itemView.findViewById(R.id.quote_image);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
         }
     }
 }
