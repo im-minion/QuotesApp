@@ -47,18 +47,15 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(holder.cardView.getContext(), "clciked" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(holder.cardView.getContext(), "clciked" + position, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(holder.cardView.getContext(), SingleViewActivity.class);
                 i.putExtra("text", quote.get(position).getText());
                 i.putExtra("img", quote.get(position).getImage());
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                    Bundle bundle = ActivityOptions.makeCustomAnimation(holder.cardView.getContext(), R.anim.slide_in_up, R.anim.slide_out_up).toBundle();
-                    holder.cardView.getContext().startActivity(i, bundle);
-                    return;
-                }
-                holder.cardView.getContext().startActivity(i);
+
+                Bundle bundle = ActivityOptions.makeCustomAnimation(holder.cardView.getContext(), R.anim.slide_in_up, R.anim.slide_out_up).toBundle();
+                holder.cardView.getContext().startActivity(i, bundle);
             }
-        });
+        });gi
     }
 
     @Override

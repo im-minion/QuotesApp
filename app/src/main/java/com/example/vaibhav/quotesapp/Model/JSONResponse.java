@@ -3,13 +3,14 @@ package com.example.vaibhav.quotesapp.Model;
 /**
  * Created by vaibhav on 6/18/17.
  */
+
 import java.io.Serializable;
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class JSONResponse implements Serializable
-{
+public class JSONResponse implements Serializable {
 
     @SerializedName("quotes")
     @Expose
@@ -18,13 +19,11 @@ public class JSONResponse implements Serializable
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public JSONResponse() {
     }
 
     /**
-     *
      * @param quotes
      */
     public JSONResponse(List<quote> quotes) {
