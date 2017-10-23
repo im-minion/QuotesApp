@@ -55,7 +55,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
                 Bundle bundle = ActivityOptions.makeCustomAnimation(holder.cardView.getContext(), R.anim.slide_in_up, R.anim.slide_out_up).toBundle();
                 holder.cardView.getContext().startActivity(i, bundle);
             }
-        });gi
+        });
     }
 
     @Override
